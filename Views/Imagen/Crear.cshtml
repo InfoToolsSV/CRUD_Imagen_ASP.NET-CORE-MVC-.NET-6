@@ -1,0 +1,36 @@
+@model Imagen
+@{
+ViewData["Title"]="Crear";
+}
+<a class="btn btn-outline-dark" type="button" asp-controller="Imagen" asp-action="Index">Volver</a>
+<br />
+<br />
+
+<form enctype="multipart/form-data" method="post" class="container">
+    <h3>Insertar registro</h3>
+    <table class="table">
+        <tr>
+            <td>
+                <label clas="form-label">Nombre:</label>
+            </td>
+            <td>
+                <input required type="text" class="form-control" asp-for="Nombre" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label clas="form-label">Imagen:</label>
+            </td>
+            <td>
+                <input required type="file" class="form-control" asp-for="File" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-outline-success">Insertar</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<label class="alert-danger">@ViewBag.error</label>

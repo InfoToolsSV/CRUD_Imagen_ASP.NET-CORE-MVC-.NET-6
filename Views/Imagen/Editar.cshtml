@@ -1,0 +1,44 @@
+@model Imagen
+@{
+ViewData["Title"]="Editar";
+}
+<a class="btn btn-outline-dark" type="button" asp-controller="Imagen" asp-action="Index">Volver</a>
+<br />
+<br />
+<form enctype="multipart/form-data" class="container-fluid" method="post">
+    <div class="card mb-6">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="data:image/jpg; base64, @Model.Image" class="rounded" width="400">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Registro</h5>
+                    <table class="table">
+                        <input hidden asp-for="Id_Imagen" />
+                        <tr>
+                            <td>
+                                <label clas="form-label">Nombre:</label>
+                            </td>
+                            <td>
+                                <input required type="text" class="form-control" asp-for="Nombre" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="file" class="form-control" asp-for="File" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" class="btn btn-outline-warning">Actualizar</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<label class="alert-danger">@ViewBag.error</label>
